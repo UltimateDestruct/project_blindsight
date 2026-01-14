@@ -10,6 +10,8 @@ Those components will be combined in a way that creates a wearable device for th
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/0b9a4de2-8408-47dd-85ab-bf5e9de13d22" />
 
+## How the device works
+
 As for how the device functions, the logic board receives information from the Lidar and converts that into sound (using either an API or data format like JSON). The sound will be specially formatted in such a way that the user can interpret it into information that can be used to navigate a 3-dimensional space.
 
 There are 5 different properties of sound that we can use:
@@ -25,3 +27,8 @@ The device should allow for various configuration options:
 - Adjust the volume (preferably a low enough volume that the user can still listen to conversations or ambient sounds).
 - The speed of the X-Axis: Users who are beginning to use the device may need to turn down the scan rate of the X-Axis so that they can interpret the information. Experienced users will likely speed up the scan rate, similar to how visually impared users turn up the speed of screen readers.
 - The Y-Axis range: A higher amount of notes should give a higher fidelity to the vertical field of vision, but there are various factors that can affect the ability to hear notes on the extreme high or extreme low areas of the scale, so the user should be able to adjust the range of the Y-Axis accordingly.
+
+## License Information
+- Software for this project is licensed under the Apache 2.0 license
+- Hardware for this project is licensed under the CERN Open Hardware Licence Version 2 - Permissive license
+- Documentation for this project is licensed under the CC-BY 4.0 license: https://creativecommons.org/licenses/by/4.0/
