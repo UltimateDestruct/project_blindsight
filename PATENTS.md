@@ -1,0 +1,1 @@
+Any patents that may be held by the authors and that read on this project are hereby licensed royalty-free for use, modification, and distribution of this project.
