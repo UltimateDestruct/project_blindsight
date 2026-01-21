@@ -28,6 +28,41 @@ The device should allow for various configuration options:
 - The speed of the X-Axis: Users who are beginning to use the device may need to turn down the scan rate of the X-Axis so that they can interpret the information. Experienced users will likely speed up the scan rate, similar to how visually impared users turn up the speed of screen readers.
 - The Y-Axis range: A higher amount of notes should give a higher fidelity to the vertical field of vision, but there are various factors that can affect the ability to hear notes on the extreme high or extreme low areas of the scale, so the user should be able to adjust the range of the Y-Axis accordingly.
 
+## How color works with the device
+
+For color, Project Blindsight uses HSV (Hue, Saturation, Value) colors and converts them into sound using specific instrument "personalities." For example, hues could be arranged like this:
+
+### Hue
+
+- Red: Horns/Brass, a red hue that is lower on the Y-Axis would be similar to a tuba; a red hue that is higher on the Y-Axis would sound more like a trumpet.
+- Green: Woodwinds, a green hue that is lower on the Y-Axis could be a bit like a bassoon; a green hue that is higher on the Y-Axis would sound more like a flute.
+- Blue: Strings, a blue hue that is lower on the Y-Axis would be like a cello; a blue hue that is higher on the Y-Axis would be similar to a violin.
+
+The different hues mapped to the Y-Axis could be mapped to different instruments, but they don't necessarily need to be. The digital sound that the user hears could take a trumpet or a flute, and lower its pitch to levels that would be impossible for a human to play.
+
+### Saturation
+
+You can think of saturation as the level of vibrant color vs how washed out it is. As for how this interacts with color in Project Blindsight, this could be represented by the sound of a voice.
+
+### Value
+
+Value is the amount of brightness vs darkness. This would be represented by a sound like a piano (or possibly a gong).
+
+HSV can be imagined as a cone, but it's easier to imagine it as 3 sliders (Hue, Saturation, and Value). The values on here can be mapped to Hexidecimal values that are often used for digital colors.
+
+Here are a few examples of what that might look and sound like:
+
+* #FF0000: Red, a sound that is all brass/horn.
+* #00FF00: Green, a sound that is all woodwind.
+* #0000FF: Blue, a sound that is all strings.
+* #FFFFFF: White, a sound that is all vocal.
+* #000000: Black, a sound that is all piano.
+* #FF00FF: Purple, a sound that mixes brass and strings (red and blue).
+* #FFFF00: Yellow, a sound that mixes brass and woodwind (red and green).
+* #FFB45E: A pastel orange, mostly red and green with a little bit of blue mixed in. It has a medium saturation with a high value. That translates to something with quite a bit of brass and woodwinds with a hint of strings. There's also a little bit of a vocal undertone, but no piano.
+
+The Hex values can be converted to HSV to determine what percentage of the sound has each element mixed in, then that can be mapped to the pitch on the Y-Axis.
+
 ## License Information
 - Software for this project is licensed under the Apache 2.0 license
 - Hardware for this project is licensed under the CERN Open Hardware Licence Version 2 - Permissive license
