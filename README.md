@@ -1,6 +1,8 @@
 # Project Blindsight
 This is a project to create technology that enables a blind person a navigate 3-dimensional spaces.
 
+The system operates by mapping spatial data derived from a depth sensor to multiple orthogonal properties of sound, enabling the user to infer three-dimensional structure through auditory perception.
+
 The project will combine several technologies into a package to accomplish its goal:
 1. A depth sensor/Lidar, such as the Orbbec Femoto Bolt
 2. A logic board for processing signals from the sensor, such as a Raspberry Pi or ESP32
@@ -17,9 +19,11 @@ As for how the device functions, the logic board receives information from the L
 There are 5 different properties of sound that we can use:
 1. Volume: Measures distance. The louder an object is, the closer it is to the user.
 2. Pitch: The Y-Axis of the field of vision. Pitch is the "notes" you would see on a piece of sheet music. Pitches such as A, B, C, D, E, F, and G would form an octave, and multiple octaves could be used to define the Y-Axis. A lower note, like a Low-C would register as being lower vertically in the user's field of vision. A high note, like a High-E would register as higher in the user's field of vision.
-3. Timing: The X-Axis of the field of vision. The X-Axis will periodically scan from left to right, kind of like a radar.
+3. Timing: The X-Axis of the field of vision. The X-Axis will periodically scan from left to right, kind of like a radar. This temporal scanning encodes horizontal position as a function of time.
 4. Timbre: Potentially used for color. Timbre can be thought of as the audio equivalent of color; it is the property of sound that allows the listener to distinguish between a violin and a trumpet.
 5. Tone: Potentially used for texture. Tone is the "quality" of the sound, so a clear tone could signify a smooth surface, whereas a fuzzy tone could signify a furry surface.
+
+The descriptions above are intended to illustrate one possible approach. Alternative mappings, encodings, and implementations are possible within the scope of the project.
 
 Here's an example of how that all fits together: Imagine a loud sound that covers the Y-Axis, followed by a period of silence, then another loud sound that covers the entire Y-Axis again. You'd be "looking" at a hallway. The loud beginning and ending sounds are the walls to the left and right of you, and the silence denotes a large empty area in between them.
 
@@ -62,6 +66,8 @@ Here are a few examples of what that might look and sound like:
 * #FFB45E: A pastel orange, mostly red and green with a little bit of blue mixed in. It has a medium saturation with a high value. That translates to something with quite a bit of brass and woodwinds with a hint of strings. There's also a little bit of a vocal undertone, but no piano.
 
 The Hex values can be converted to HSV to determine what percentage of the sound has each element mixed in, then that can be mapped to the pitch on the Y-Axis.
+
+Once again, the descriptions above are intended to illustrate one possible approach. Alternative mappings, encodings, and implementations are possible within the scope of the project.
 
 ## License Information
 - Software for this project is licensed under the Apache 2.0 license
