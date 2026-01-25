@@ -8,9 +8,10 @@ The project will combine several technologies into a package to accomplish its g
 2. A logic board for processing signals from the sensor, such as a Raspberry Pi or ESP32
 3. A listening device for the user, such as headphones
 
-Those components will be combined in a way that creates a wearable device for the user. There will obviously be additional components such as a battery, adjustable strap, and padding so that the wearable device will be comfortable and have enough power to run for an extended period of time. See the image below for an example render of what the device might look like:
+Those components will be combined in a way that creates a wearable device for the user. There will obviously be additional components such as a battery so that the device will have enough power to run for an extended period of time, adjustable strap, a camera (for tasks like determining colors), and padding so that the wearable device will be comfortable. See the image below for an example render of what the device might look like:
 
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/0b9a4de2-8408-47dd-85ab-bf5e9de13d22" />
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/5a6611be-9d35-479b-bbbf-284aa1b37d11" />
+
 
 ## How the device works
 
@@ -25,7 +26,23 @@ There are 5 different properties of sound that we can use:
 
 The descriptions above are intended to illustrate one possible approach. Alternative mappings, encodings, and implementations are possible within the scope of the project.
 
-Here's an example of how that all fits together: Imagine a loud sound that covers the Y-Axis, followed by a period of silence, then another loud sound that covers the entire Y-Axis again. You'd be "looking" at a hallway. The loud beginning and ending sounds are the walls to the left and right of you, and the silence denotes a large empty area in between them.
+Here's an example of how that all fits together: Imagine a loud sound that covers the Y-Axis, followed by a period of silence (broken by an upside down U sound "shape" near the lower pitches), then another loud sound that covers the entire Y-Axis again. You'd be "looking" at a hallway with a table in it. The loud beginning and ending sounds are the walls to the left and right of you, the silence denotes a large empty area in between them, and that upside down U sound shape is the table.
+
+Here is a visual example of what the audio experience might sound like:
+
+<img width="400" height="376" alt="image" src="https://github.com/user-attachments/assets/1dd23ff9-cfa4-4652-8365-789db974a7f3" />
+
+Here is what a cave with stalactites and stalagmites could sound like:
+
+<img width="400" height="376" alt="image" src="https://github.com/user-attachments/assets/fa9f5738-c8b6-4553-88c1-31f16bf162fa" />
+
+A few trees in a park:
+
+<img width="400" height="376" alt="image" src="https://github.com/user-attachments/assets/376a80d6-edd0-4330-ba1b-1c84a0396e43" />
+
+Or even looking down at your own legs or feet; the device follows your field of vision:
+
+<img width="400" height="376" alt="image" src="https://github.com/user-attachments/assets/4fb8b0a4-bb9a-4697-b681-36a74e72f439" />
 
 The device should allow for various configuration options:
 - Adjust the volume (preferably a low enough volume that the user can still listen to conversations or ambient sounds).
@@ -56,16 +73,18 @@ HSV can be imagined as a cone, but it's easier to imagine it as 3 sliders (Hue, 
 
 Here are a few examples of what that might look and sound like:
 
-* #FF0000: Red, a sound that is all brass/horn.
-* #00FF00: Green, a sound that is all woodwind.
-* #0000FF: Blue, a sound that is all strings.
-* #FFFFFF: White, a sound that is all vocal.
-* #000000: Black, a sound that is all piano.
-* #FF00FF: Purple, a sound that mixes brass and strings (red and blue).
-* #FFFF00: Yellow, a sound that mixes brass and woodwind (red and green).
-* #FFB45E: A pastel orange, mostly red and green with a little bit of blue mixed in. It has a medium saturation with a high value. That translates to something with quite a bit of brass and woodwinds with a hint of strings. There's also a little bit of a vocal undertone, but no piano.
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/793150c8-b84a-45f9-bf2e-95814a9a0dba" /> #FF0000: Red, a sound that is all brass/horn.
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/3b466287-3017-4088-b162-09ea6388c5cf" /> #00FF00: Green, a sound that is all woodwind.
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/a25901a9-15b9-43b1-9af1-7cc1334c3b4a" /> #0000FF: Blue, a sound that is all strings.
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/94bcaf09-d1db-449f-a07c-28a726c06495" /> #FFFFFF: White, a sound that is all vocal.
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/a977b320-9cc2-48e4-b32c-5940e8ec5d5f" /> #000000: Black, a sound that is all piano.
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/edc8f10d-db15-41a6-bdd7-a40bcc16848c" /> #FF00FF: Purple, a sound that mixes brass and strings (red and blue).
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/6cf75700-3553-4ad5-b233-0d2581b818af" /> #FFFF00: Yellow, a sound that mixes brass and woodwind (red and green).
+* <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/189a2fff-803b-4a74-9224-7096056b805c" /> #FFB45E: A pastel orange, mostly red and green with a little bit of blue mixed in. It has a medium saturation with a high value. That translates to something with quite a bit of brass and woodwinds, and a hint of strings. There's also a little bit of a vocal undertone, but no piano.
 
 The Hex values can be converted to HSV to determine what percentage of the sound has each element mixed in, then that can be mapped to the pitch on the Y-Axis.
+
+To determine what color each sector of the X/Y axis should show, a camera on the device could measure the average of the colors within the coordinates of the grid, then return that value as a Hex color.
 
 Once again, the descriptions above are intended to illustrate one possible approach. Alternative mappings, encodings, and implementations are possible within the scope of the project.
 
